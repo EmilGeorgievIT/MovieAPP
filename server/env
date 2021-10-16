@@ -1,0 +1,7 @@
+PORT=3200
+MAIL_USERNAME=mycodeatgit@gmail.com
+MAIL_PASS=Praveen@123
+JWT_SECRET=secret@_@
+MYSQL_USERNAME=root
+MYSQL_PASSWORD=
+MYSQL_SCHEMA=wpsv1
