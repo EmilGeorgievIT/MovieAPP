@@ -4,9 +4,9 @@
 
  export const UrlConstants = {
    HOME: 'home',
-   ABOUT_US: 'about-us',
-   CONTACT_US: 'contact-us',
    DASHBOARD: 'dashboard',
+   ADD_MOVIE: 'add-movie',
+   LIST_MOVIES: 'list-movies',
    AUTH: 'auth',
    PAGE_NOT_FOUND: '404',
    LOGIN: 'login',

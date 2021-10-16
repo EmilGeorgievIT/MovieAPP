@@ -9,7 +9,7 @@ export const authRoutes: Routes = [{
   component: AuthComponent,
   children: [
     {
-        path: UrlConstants.LOGIN,
+        path: '',
         component: LoginComponent
     },
     {
