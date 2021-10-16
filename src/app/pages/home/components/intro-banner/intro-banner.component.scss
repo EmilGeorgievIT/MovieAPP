@@ -1,0 +1,8 @@
+@import 'mixins';
+
+.intro-banner {
+    & {
+        @include background-image;
+        background-image: url('/assets/images/intro-banner.jpg');
+    }
+}

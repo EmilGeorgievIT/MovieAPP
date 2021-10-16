@@ -1,0 +1,55 @@
+
+@import 'variables';
+@import 'settings';
+
+.mat-toolbar {
+    & {
+        background: rgba(46, 41, 46, 0.8);
+        position: absolute;
+        left: 0;
+        z-index: 101;
+        height: 55px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        border-radius: 3px;
+        color: $white;
+        
+        @media(max-width: $responsive-xs) {
+            border-radius: 0;
+        }
+    }
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 0 1 70%;
+    
+    &__text {
+        display: inline-block;
+        margin-left: 5px;    
+    }
+}
+
+.navbar-utils {
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        color: #b4b1b2;
+        font-size: $font-size-base;
+    }
+    
+    li ~ li {
+        margin-left: 10px;
+    }
+    
+    a:hover, a:active{
+        color: $white;
+    }
+}

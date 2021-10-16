@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <div class="burger-menu visible-sm-block visible-xs-block">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <a routerLink="/home" class="logo">
+    <mat-icon>movie</mat-icon>
+    
+    <strong class="logo__text">
+      MovieAPP
+    </strong>
+  </a>
+
+  <nav class="navbar-utils">
+    <ul class="navigation-items">
+      <li>
+        <a routerLink="/auth">Login/Register</a>
+      </li>
+
+      <li>
+        <a routerLink="/account">Account Actions</a>
+      </li>
+    </ul>
+  </nav>
+</mat-toolbar>
