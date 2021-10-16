@@ -3,6 +3,6 @@ import { HomeComponent } from './home.component';
 
 export const homeRoutes: Routes = [
   {  
-      path: '', component: HomeComponent 
-    }
+    path: '', component: HomeComponent 
+  }
 ];

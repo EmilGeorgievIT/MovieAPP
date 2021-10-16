@@ -1,0 +1,40 @@
+@import 'variables';
+
+.section-login {
+    & {
+        background-color: $white;
+        padding: 100px 0;
+        min-height: 100vh;
+    }
+    .section__header {
+        text-align: center;
+        margin-bottom: 20px;
+
+        .section__title {
+            font-weight: bold;
+        }    
+    }
+
+    .form-login {
+        & {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .mat-form-field {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form__actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            margin-top: 20px;
+
+            .submit-button {
+                background-color: $orange;
+                color: $purple;
+            }
+        }
+    }
+}

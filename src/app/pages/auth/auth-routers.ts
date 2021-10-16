@@ -7,7 +7,6 @@ import { RegisterComponent } from './components/register/register.component';
 export const authRoutes: Routes = [{
   path: '',
   component: AuthComponent,
-  redirectTo: UrlConstants.LOGIN,
   children: [
     {
         path: UrlConstants.LOGIN,

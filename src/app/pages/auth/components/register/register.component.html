@@ -1,1 +1,79 @@
-<p>register works!</p>
+<section class="section-register">
+    <div class="container">
+        <div class="section__header">
+            <h1 class="section__title">
+                Register
+            </h1>
+
+            <p>
+                Register to Movie APP
+            </p>
+        </div>
+
+        <div class="section__body">
+            <form [formGroup]="registerForm" class="form-register">
+                <div class="form__body">
+                    <mat-form-field class="form-field">
+                        <mat-label>First Name:</mat-label>
+
+                        <input formControlName="firstName" matInput placeholder="First name" required>
+                        
+                        <mat-error *ngIf="!emailInput.hasError('firstName')">
+                            This field is required !
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field">
+                        <mat-label>Last Name:</mat-label>
+                        
+                        <input formControlName="lastName" matInput placeholder="Last name" required>
+                        
+                        <mat-error *ngIf="!emailInput.hasError('lastName')">
+                            This field is required !
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field">
+                        <mat-label>User Name:</mat-label>
+                        <input formControlName="email" matInput placeholder="User name" required>
+                        
+                        <mat-error *ngIf="emailInput.hasError('email') && !emailInput.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+
+                        <mat-error *ngIf="!emailInput.hasError('email') && emailInput.hasError('required')">
+                            This field is required !
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <mat-form-field form-field>
+                        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        
+                        <mat-error *ngIf="passwordInput.hasError('required') && !passwordInput.hasError('min')">
+                            This field is required !
+                        </mat-error>
+
+                        <mat-error *ngIf="!passwordInput.hasError('required') && passwordInput.hasError('min')">
+                            Please enter minimum 3 characters for the password !
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="form__actions">
+                    <button (click)="submitRegisterForm()" class="submit-button" mat-button>
+                        Register
+                    </button>
+                    
+                    <strong>
+                        or
+                    </strong>
+                    
+                    <button routerLink="/auth/login" mat-button>
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
