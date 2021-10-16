@@ -6,10 +6,12 @@ import { authRoutes } from './auth-routers';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthComponent } from './auth.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
+    AuthComponent,
     RegisterComponent,
   ],
   imports: [

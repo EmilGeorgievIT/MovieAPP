@@ -16,10 +16,8 @@ module.exports = {
       User.create({
         firstName,
         lastName,
-        address,
         email,
         hashedPassword,
-        role,
         salt
       }).then((user) => {
         try {
@@ -28,7 +26,12 @@ module.exports = {
           console.log(error)
         }
         res.status(201)
-          .json({ message: 'User created!', user: user });
+          .json(
+            { 
+              messages: ['User created!'], 
+              result: user 
+            }
+          );
       })
         .catch((error) => {
           if (!error.statusCode) {
@@ -49,7 +52,7 @@ module.exports = {
           error.statusCode = 404;
 
           res.status(404).json({
-            "message": "User not found!"
+            messages: ["User not found!"]
           })
           throw error;
         } else {
@@ -61,7 +64,7 @@ module.exports = {
             error.statusCode = 404;
 
             res.status(404).json({
-              "message": "User not found!"
+              messages: ["User not found!"]
             })
 
             throw error;
@@ -77,12 +80,14 @@ module.exports = {
 
           res.status(200).json(
             {
-              message: 'logged',
-              id: user.id,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              email: user.email,
-              access_token
+              messages: ['logged'],
+              result: {
+                id: user.id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                access_token
+              }
             });
         }
       })

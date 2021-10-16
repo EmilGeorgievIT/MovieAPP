@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { snackBarConfig } from 'src/app/shared/configs/snack-bar.config';
+import { ApiResponse } from 'src/app/shared/models/api-response.model';
+import { UrlConstants } from 'src/app/shared/utils/url-constants';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +15,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
   hide = true;
-
+  subsctiption: Subscription;
+  
   registerForm: FormGroup = new FormGroup({
     firstName: new FormControl('', [Validators.required ]),
     lastName: new FormControl('', [Validators.required ]), 
@@ -21,9 +29,31 @@ export class RegisterComponent {
   get emailInput() { return this.registerForm.get('email'); }
   get passwordInput() { return this.registerForm.get('password'); }
   
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) { }
 
   submitRegisterForm(): void {
-    console.log(this.registerForm.value);
+    if(this.registerForm.valid) {
+      this.subsctiption = this.authService.signUp(this.registerForm.value)
+      .subscribe((data: ApiResponse) => {
+        this.router.navigate([UrlConstants.AUTH]);
+        this.snackBar.open(data.messages.toString(), 'Success', {
+          duration:  snackBarConfig.duration,
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition
+        });
+
+      }, error => {
+        const errorMessage = error?.error?.messages ? error.error.messages[0] : error;
+        this.snackBar.open(errorMessage, 'Error', {
+          duration:  snackBarConfig.duration,
+          horizontalPosition: snackBarConfig.horizontalPosition,
+          verticalPosition: snackBarConfig.verticalPosition
+        });
+      })
+    }
   }
 }
