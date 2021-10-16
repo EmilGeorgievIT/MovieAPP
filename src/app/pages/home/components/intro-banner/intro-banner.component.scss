@@ -1,8 +1,21 @@
 @import 'mixins';
+@import 'variables';
+@import 'settings';
 
 .intro-banner {
     & {
         @include background-image;
         background-image: url('/assets/images/intro-banner.jpg');
+        padding: 200px 0;
+        color: $white;
+        
+    }
+    &__content {
+        max-width: 600px;
+        margin-right: auto;    
+    }
+    
+    @media(max-width: $responsive-xs) {
+        background-position: 0% 20%;
     }
 }

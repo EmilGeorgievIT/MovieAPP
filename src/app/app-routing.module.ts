@@ -6,8 +6,7 @@ import { UrlConstants } from './shared/utils/url-constants';
 const routes: Routes = [
   {  path: '',  redirectTo: UrlConstants.HOME, pathMatch: 'full' },
   {  path: UrlConstants.HOME, loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
-//   {  path: UrlConstants.AUTH, loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
-//   {  path: UrlConstants.PAYMENT, loadChildren: () => import('./pages/billing/billing.module').then(m => m.BillingModule) },
+  {  path: UrlConstants.AUTH, loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
   {  path: UrlConstants.PAGE_NOT_FOUND,  component: PageNotFoundComponent },
   {  path: '**', component: PageNotFoundComponent }
 ];

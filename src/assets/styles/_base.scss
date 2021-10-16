@@ -63,7 +63,13 @@ table:last-child,
 blockquote:last-child { margin-bottom: 0; }
 
 //  Mobile Basic
- 
+
+/**
+	Review comment added custom media queries because I don't like using fxLayout directive
+	fxLayout doesn't give you flexibility for the SCSS and it's hard to read especially when you
+	have more HTML elements
+*/
+
 @media (max-width: $responsive-xs) {
 	h1 { font-size: 28px; }
 	h2 { font-size: 24px; }
@@ -71,4 +77,10 @@ blockquote:last-child { margin-bottom: 0; }
 	h4 { font-size: 16px; }
 	h5 { font-size: 14px; }
 	h6 { font-size: 12px; }
+}
+
+.container {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 15px;
 }

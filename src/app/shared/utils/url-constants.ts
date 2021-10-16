@@ -3,10 +3,12 @@
  */
 
  export const UrlConstants = {
-    HOME: 'home',
-    ABOUT_US: 'about-us',
-    CONTACT_US: 'contact-us',
-    DASHBOARD: 'dashboard',
-    AUTH: 'auth',
-    PAGE_NOT_FOUND: '404',
+   HOME: 'home',
+   ABOUT_US: 'about-us',
+   CONTACT_US: 'contact-us',
+   DASHBOARD: 'dashboard',
+   AUTH: 'auth',
+   PAGE_NOT_FOUND: '404',
+   LOGIN: 'login',
+   REGISTER: 'register',
  };
