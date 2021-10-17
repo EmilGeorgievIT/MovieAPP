@@ -1,1 +1,40 @@
 <app-intro-banner></app-intro-banner>
+
+<section class="section-today-best-choice">
+    <div class="container">
+        <div class="section__body">
+            <div class="section__movie-rating">
+                <h2>
+                    TODAY BEST CHOICE
+                </h2>
+
+                <div *ngIf="images?.length" class="section__slider">
+                    <carousel
+                        [width]='600'
+                        [height]='320'
+                        [images]="images">
+                        <div *ngFor="let imagePath of images" class="carousel-cell">
+                            <img [src]="imagePath">
+                        </div>
+                    </carousel>
+                </div>
+
+                <div *ngIf="!images?.length" class="section__slider-no-content">
+                    <h3>
+                        <strong>
+                            Empty movie list 
+                        </strong>
+                    </h3>
+
+                    <p>
+                        Please login to the Movie APP to add movie    
+                    </p>
+
+                    <button routerLink='/auth' mat-raised-button>
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -31,10 +31,20 @@ export class MovieService {
   }
 
   /**
+   *  Get all images from movies
+   * @returns Observable<{ photo: []}>
+   */
+   getAllMovieImages(): Observable<{ photo: ArrayBuffer[]}[]> {
+    return this.http
+    .get<ApiResponse>('/api/movie/getAllMovieImages')
+    .pipe(map((response: ApiResponse) => response.result));
+  }
+
+  /**
    *  Get movie details for specific movie ID
    * @returns Observable<ApiResponse>
    */
-  getMovieDetails(movieId: string): Observable<Movie> {
+   getMovieDetails(movieId: string): Observable<Movie> {
     return this.http
     .get<ApiResponse>('/api/movie/getMovieDetails?movieId=' + movieId)
     .pipe(map((response: ApiResponse) => response.result));
@@ -58,5 +68,18 @@ export class MovieService {
     formData.append('photo', payload.photo);
 
     return this.http.post<ApiResponse>('/api/movie/createMovie', formData);
+  }
+
+  createImageFromBlob(image: ArrayBuffer): string | null {
+    let typedArray = new Uint8Array(image);
+    let stringCharacters = '';
+
+    stringCharacters = typedArray.reduce((data, byte)=> {
+      return data + String.fromCharCode(byte);
+      }, '');
+
+    let base64String = btoa(stringCharacters);
+
+    return base64String;
   }
 }

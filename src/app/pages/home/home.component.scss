@@ -1,3 +1,5 @@
+@import 'variables';
+
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     height: 100%;
 }
@@ -8,4 +10,51 @@ mat-sidenav {
 
 main {
     padding: 10px;
+}
+
+.section-today-best-choice {
+    & {
+        padding: 70px 0;
+    }
+    .section__slider {
+        display: flex;
+        justify-content: center;
+    }
+    .section__slider-no-content {
+        text-align: center;
+        h3 {
+            font-size: 20px;
+        }
+        p {
+            font-size: 16px;
+        }
+    }
+    .section__movie-rating {
+        background-color: $yellow;
+        padding: 40px;
+
+        h2 {
+            text-align: center;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: calc(50% - 200px);
+                top: 4px;
+                width: 95px;    
+                background-image: url('/assets/images/stars.svg');
+                height: 20px;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                right: calc(50% - 200px);
+                top: 4px;
+                width: 95px;    
+                background-image: url('/assets/images/stars.svg');
+                height: 20px;
+            }
+        }
+    }
 }

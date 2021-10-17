@@ -5,6 +5,9 @@
         padding: 40px 0;
     }
     .section__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 20px;
     }
 }

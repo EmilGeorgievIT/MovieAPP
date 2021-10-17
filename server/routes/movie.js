@@ -9,7 +9,9 @@ router.get("/getAllMovies", movie.getAllMovies);
 
 router.get("/getMoviesByUserId", isAuth, movie.getMoviesByUserId);
 
-router.get("/getMovieDetails", movie.getMovieDetails);
+router.get("/getMovieDetails", isAuth, movie.getMovieDetails);
+
+router.get("/getAllMovieImages", movie.getAllMovieImages);
 
 router.delete("/deleteMovie", isAuth, movie.deleteMovie);
 

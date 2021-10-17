@@ -68,6 +68,29 @@ module.exports = {
                 });
             });
     },
+    getAllMovieImages: (req, res, next) => {
+        const limit = req.query.limit? parseInt(req.query.limit) : 5;
+        const sliderPage = req.query.sliderPage? req.query.sliderPage: 1;
+
+        Movie.findAll(
+                { 
+                    attributes: ['photo'],
+                    limit: limit,
+                    offset: (limit - 1) * sliderPage,
+                },
+            )
+            .then((movies) => {
+                res.status(200).json({
+                    result: movies
+                });
+            })
+            .catch((err) => {
+                res.status(500).send({
+                    message:
+                        err.message || "Some error occurred while retrieving movies.",
+                });
+            });
+    },
     getMovieDetails: (req, res, next) => {
         Movie.findOne({ where: { id: req.query.movieId }})
             .then((movie) => {

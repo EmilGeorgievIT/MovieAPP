@@ -33,26 +33,13 @@ export class PreviewMovieComponent implements OnInit, OnDestroy {
     .subscribe((data: Movie) => {
       this.movie = data;
       
-      const base64String = this.createImageFromBlob(data.photo.data);
+      const base64String = this.movieService.createImageFromBlob(data.photo.data);
       this.movie.photo = this.domSanitizer.bypassSecurityTrustUrl('data:image/jpg;base64, '+ base64String);
       this.isLoading = false;
       console.log(this.movie);
     }, error => {
       this.isLoading = false;
     })
-  }
-
-  createImageFromBlob(image: ArrayBuffer): string | null {
-    let typedArray = new Uint8Array(image);
-    let stringCharacters = '';
-
-    stringCharacters = typedArray.reduce((data, byte)=> {
-      return data + String.fromCharCode(byte);
-      }, '');
-
-    let base64String = btoa(stringCharacters);
-
-    return base64String;
   }
 
   ngOnDestroy() {

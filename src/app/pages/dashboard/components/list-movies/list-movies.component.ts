@@ -32,26 +32,13 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
     .subscribe((data: Movie[]) => {
       this.listMovies = [...data];
       this.listMovies.forEach((movie) => {
-        const base64String = this.createImageFromBlob(movie.photo.data);
+        const base64String = this.movieService.createImageFromBlob(movie.photo.data);
         movie.photo = this.domSanitizer.bypassSecurityTrustUrl('data:image/jpg;base64, '+ base64String);
       });
       this.isLoading = false;
     }, error => {
       this.isLoading = false;
     })
-  }
-
-  createImageFromBlob(image: ArrayBuffer): string | null {
-    let typedArray = new Uint8Array(image);
-    let stringCharacters = '';
-
-    stringCharacters = typedArray.reduce((data, byte)=> {
-      return data + String.fromCharCode(byte);
-      }, '');
-
-    let base64String = btoa(stringCharacters);
-
-    return base64String;
   }
 
   ngOnDestroy() {

@@ -6,6 +6,14 @@
         padding: 40px 0;
     }
 
+    .section__bar {
+        margin-bottom: 20px;
+        
+        .mat-raised-button {
+            background: $orange;
+        }
+    }
+
     .form-add-movie {
         & {
             padding: 40px 0;
