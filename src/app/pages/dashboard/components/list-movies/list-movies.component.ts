@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { JWTTokenService } from 'src/app/shared/services/jwt-token.service';
+import { Movie } from '../../models/movie-model';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-list-movies',
@@ -6,10 +10,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-movies.component.scss']
 })
 export class ListMoviesComponent implements OnInit {
+  subsctiption: Subscription;
 
-  constructor() { }
+  constructor(
+    public movieService: MovieService,
+    private jwtTokenService: JWTTokenService
+  ) { }
 
   ngOnInit(): void {
+    this.getMovieList();
   }
 
+  getMovieList(): void {
+    const userId = this.jwtTokenService.getDecodeToken().id;
+    this.subsctiption = this.movieService.getMoviesByUserId(userId)
+    .subscribe((data: Movie[]) => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    })
+  }
 }

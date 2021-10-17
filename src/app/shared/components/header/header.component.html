@@ -15,12 +15,16 @@
 
   <nav class="navbar-utils">
     <ul class="navigation-items">
-      <li>
+      <li *ngIf="!authService.isLoggedIn()">
         <a routerLink="/auth">Login/Register</a>
       </li>
 
-      <li>
+      <li *ngIf="authService.isLoggedIn()">
         <a routerLink="/account">Account Actions</a>
+      </li>
+
+      <li *ngIf="authService.isLoggedIn()">
+        <a (click)="authService.logout()">Logout</a>
       </li>
     </ul>
   </nav>

@@ -74,7 +74,7 @@ module.exports = {
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
-            userId: user.id.toString()
+            id: user.id
           }, jwt_secret,
             { expiresIn: '1h' });
 

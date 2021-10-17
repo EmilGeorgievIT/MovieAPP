@@ -6,7 +6,7 @@ import { ListMoviesComponent } from './components/list-movies/list-movies.compon
 import { dashboardRoutes } from './dashboard-routers';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
-
+import { MovieService } from './services/movie.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,9 @@ import { SharedModule } from 'src/app/shared/modules/shared.module';
     CommonModule,
     SharedModule,
     RouterModule.forChild(dashboardRoutes),
+  ],
+  providers: [
+    MovieService
   ]
 })
 export class DashboardModule { }
