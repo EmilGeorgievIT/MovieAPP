@@ -7,12 +7,13 @@ import { dashboardRoutes } from './dashboard-routers';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { MovieService } from './services/movie.service';
+import { PreviewMovieComponent } from './components/preview-movie/preview-movie.component';
 
 @NgModule({
   declarations: [
     DashboardComponent, 
     AddMovieComponent, 
-    ListMoviesComponent
+    ListMoviesComponent, PreviewMovieComponent
   ],
   imports: [
     CommonModule,

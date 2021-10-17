@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../components/header/header.component';
 import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
+import { IntroBannerComponent } from 'src/app/shared/components/intro-banner/intro-banner.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, IntroBannerComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     HeaderComponent,
+    IntroBannerComponent,
     MaterialModule
   ]
 })

@@ -5,8 +5,7 @@
 .intro-banner {
     & {
         @include background-image;
-        background-image: url('/assets/images/intro-banner.jpg');
-        padding: 200px 0;
+        padding: 160px 0;
         color: $white;
         
     }

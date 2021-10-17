@@ -11,6 +11,8 @@ import { MovieService } from '../../services/movie.service';
 })
 export class ListMoviesComponent implements OnInit {
   subsctiption: Subscription;
+  listMovies: Movie[] = [];
+  isLoading = false;
 
   constructor(
     public movieService: MovieService,
@@ -22,12 +24,14 @@ export class ListMoviesComponent implements OnInit {
   }
 
   getMovieList(): void {
+    this.isLoading = true;
     const userId = this.jwtTokenService.getDecodeToken().id;
     this.subsctiption = this.movieService.getMoviesByUserId(userId)
     .subscribe((data: Movie[]) => {
-      console.log(data);
+      this.listMovies = [...data];
+      this.isLoading = false;
     }, error => {
-      console.log(error);
+      this.isLoading = false;
     })
   }
 }
