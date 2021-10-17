@@ -18,7 +18,7 @@
 
                         <input formControlName="firstName" matInput placeholder="First name" required>
                         
-                        <mat-error *ngIf="!emailInput.hasError('firstName')">
+                        <mat-error *ngIf="formControlInput('firstName').hasError('required')">
                             This field is required !
                         </mat-error>
                     </mat-form-field>
@@ -28,7 +28,7 @@
                         
                         <input formControlName="lastName" matInput placeholder="Last name" required>
                         
-                        <mat-error *ngIf="!emailInput.hasError('lastName')">
+                        <mat-error *ngIf="formControlInput('lastName').hasError('required')">
                             This field is required !
                         </mat-error>
                     </mat-form-field>
@@ -37,11 +37,11 @@
                         <mat-label>User Name:</mat-label>
                         <input formControlName="email" matInput placeholder="User name" required>
                         
-                        <mat-error *ngIf="emailInput.hasError('email') && !emailInput.hasError('required')">
+                        <mat-error *ngIf="formControlInput('email').hasError('email') && !formControlInput('email').hasError('required')">
                             Please enter a valid email address
                         </mat-error>
 
-                        <mat-error *ngIf="!emailInput.hasError('email') && emailInput.hasError('required')">
+                        <mat-error *ngIf="!formControlInput('email').hasError('email') && formControlInput('email').hasError('required')">
                             This field is required !
                         </mat-error>
                     </mat-form-field>
@@ -50,11 +50,11 @@
                         <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
                         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         
-                        <mat-error *ngIf="passwordInput.hasError('required') && !passwordInput.hasError('min')">
+                        <mat-error *ngIf="formControlInput('password').hasError('required') && !formControlInput('password').hasError('min')">
                             This field is required !
                         </mat-error>
 
-                        <mat-error *ngIf="!passwordInput.hasError('required') && passwordInput.hasError('min')">
+                        <mat-error *ngIf="!formControlInput('password').hasError('required') && formControlInput('password').hasError('min')">
                             Please enter minimum 3 characters for the password !
                         </mat-error>
                     </mat-form-field>

@@ -1,0 +1,57 @@
+
+@import 'variables';
+
+.section-add-movie {
+    & {
+        padding: 40px 0;
+    }
+
+    .form-add-movie {
+        & {
+            padding: 40px 0;
+        }
+        .mat-form-field {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form__actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            margin-top: 20px;
+
+            .submit-button {
+                background-color: $orange;
+                color: $purple;
+            }
+        }
+        .file-upload {
+            display: inline-block;
+            position: relative;
+        }
+        .file-upload__input {
+            cursor: pointer;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        
+        .file-upload__design {
+            background: $orange;
+            border-radius: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            transition: background 0.3s ease-in-out;
+        }
+        
+        .file-upload__input:focus + .file-upload__design,
+        .file-upload__input:hover + .file-upload__design {
+            background: $orange;
+        }
+    }
+} 

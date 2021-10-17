@@ -3,10 +3,6 @@ const fs = require("fs");
 
 module.exports = {
     createMovie: async (req, res, next) => {
-        if (req.file == undefined) {
-            return res.status(400).send("Please upload a photo !");
-        }
-
         const {
             name,
             category,
@@ -35,6 +31,7 @@ module.exports = {
         .then((movie) => {
             res.status(200).json(
                 { 
+                    message: `The ${movie.name} has been added !`,
                     result: {
                         name: movie.name,
                         director: movie.director,

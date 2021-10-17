@@ -16,7 +16,15 @@
   <nav class="navbar-utils">
     <ul class="navigation-items">
       <li *ngIf="!authService.isLoggedIn()">
+        <a routerLink="/">Home</a>
+      </li>
+
+      <li *ngIf="!authService.isLoggedIn()">
         <a routerLink="/auth">Login/Register</a>
+      </li>
+
+      <li *ngIf="authService.isLoggedIn()">
+        <a routerLink="/dashboard">Home</a>
       </li>
 
       <li *ngIf="authService.isLoggedIn()">

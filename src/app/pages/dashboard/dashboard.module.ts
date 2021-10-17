@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { MovieService } from './services/movie.service';
 import { PreviewMovieComponent } from './components/preview-movie/preview-movie.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PreviewMovieComponent } from './components/preview-movie/preview-movie.
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     SharedModule,
     RouterModule.forChild(dashboardRoutes),
   ],

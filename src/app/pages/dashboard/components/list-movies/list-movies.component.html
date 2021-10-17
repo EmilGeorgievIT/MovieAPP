@@ -17,7 +17,7 @@
             <ng-container *ngIf="listMovies.length && !isLoading; else noMovies">
                 <div routerLink="/dashboard/movie-preview/{{movie.id}}" *ngFor="let movie of listMovies" class="movie">
                     <div class="movie__aside">
-                        <img class="movie__image" src="assets/images/movie-example.jpg" alt="movie-image">
+                        <img class="movie__image" [src]="movie.photo" alt="movie-image">
                     </div>
     
                     <div class="movie__content">

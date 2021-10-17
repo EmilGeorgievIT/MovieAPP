@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { JWTTokenService } from 'src/app/shared/services/jwt-token.service';
 import { Movie } from '../../models/movie-model';
@@ -16,6 +17,7 @@ export class ListMoviesComponent implements OnInit {
 
   constructor(
     public movieService: MovieService,
+    private domSanitizer: DomSanitizer,
     private jwtTokenService: JWTTokenService
   ) { }
 
@@ -29,9 +31,26 @@ export class ListMoviesComponent implements OnInit {
     this.subsctiption = this.movieService.getMoviesByUserId(userId)
     .subscribe((data: Movie[]) => {
       this.listMovies = [...data];
+      this.listMovies.forEach((movie) => {
+        const base64String = this.createImageFromBlob(movie.photo.data);
+        movie.photo = this.domSanitizer.bypassSecurityTrustUrl('data:image/jpg;base64, '+ base64String);
+      });
       this.isLoading = false;
     }, error => {
       this.isLoading = false;
     })
+  }
+
+  createImageFromBlob(image: ArrayBuffer): string | null {
+    let typedArray = new Uint8Array(image);
+    let stringCharacters = '';
+
+    stringCharacters = typedArray.reduce((data, byte)=> {
+      return data + String.fromCharCode(byte);
+      }, '');
+
+    let base64String = btoa(stringCharacters);
+
+    return base64String;
   }
 }

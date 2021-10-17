@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnDestroy {
   hide = true;
   subsctiption: Subscription;
   
@@ -24,10 +24,7 @@ export class RegisterComponent {
     password: new FormControl('', [Validators.required, Validators.min(3) ])
   });
 
-  get firstName() { return this.registerForm.get('firstName'); }
-  get lastName() { return this.registerForm.get('lastName'); }
-  get emailInput() { return this.registerForm.get('email'); }
-  get passwordInput() { return this.registerForm.get('password'); }
+  formControlInput(name: string) { return this.registerForm.get(name); }
   
   constructor(
     private authService: AuthService,
@@ -55,5 +52,11 @@ export class RegisterComponent {
         });
       })
     }
+  }
+
+  ngOnDestroy(): void {
+   if (this.subsctiption) {
+     this.subsctiption.unsubscribe();
+   } 
   }
 }

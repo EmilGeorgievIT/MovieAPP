@@ -1,1 +1,142 @@
-<p>add-movie works!</p>
+<app-intro-banner 
+    [image]="'/assets/images/add-movie-banner.jpg'"
+    [content]="'Here you can add a movie to your library !'">
+</app-intro-banner>
+
+<section class="section-add-movie">
+    <div class="container">
+        <div class="section__head">
+            <h1 class="section__title">
+                Add movie
+            </h1>
+        </div>
+
+        <div class="section__body">
+            <form [formGroup]="addMovieForm" class="form-add-movie">
+                <div class="form__body">
+                    <div class="cols">
+                        <div class="col--1of2">
+                            <mat-form-field class="form-field">
+                                <mat-label>Name:</mat-label>
+        
+                                <input formControlName="name" matInput placeholder="Name" required>
+                                
+                                <mat-error *ngIf="formControlInput('name').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col--1of2">
+                            <mat-form-field class="form-field">
+                                <mat-label>Director:</mat-label>
+                                
+                                <input formControlName="director" matInput placeholder="Director" required>
+                                
+                                <mat-error *ngIf="formControlInput('director').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    
+                    <div class="cols">
+                        <div class="col--1of2">
+                            <mat-form-field class="form-field">
+                                <mat-label>Rank</mat-label>
+                                <input formControlName="rank" type="number" matInput placeholder="Rank" required>
+                                
+                                <mat-error *ngIf="formControlInput('rank').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        
+                        <div class="col--1of2">
+                            <mat-form-field class="form-field">
+                                <mat-label>Release Date</mat-label>
+
+                                <input type="datetime-local" formControlName="releaseDate" matInput placeholder="Release Date" required>
+                                
+                                <mat-error *ngIf="formControlInput('releaseDate').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <div class="col--1of2">
+                            <mat-form-field class="form-field">
+                                <mat-label>Box office</mat-label>
+                                <input type="number" formControlName="boxoffice" matInput placeholder="Box office" required>
+                                
+                                <mat-error *ngIf="formControlInput('boxoffice').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        
+                        <div class="col--1of2">
+                            <mat-form-field class="form-field">
+                                <mat-label>Category</mat-label>
+                                
+                                <input formControlName="category" matInput placeholder="Category" required>
+                                
+                                <mat-error *ngIf="formControlInput('category').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <div class="col">
+                            <mat-form-field class="form-field">
+                                <mat-label>Pilot</mat-label>
+                                <textarea formControlName="thePilot" matInput required></textarea>
+
+                                <mat-error *ngIf="formControlInput('thePilot').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+
+                                <mat-error *ngIf="formControlInput('thePilot').hasError('maxlength')">
+                                    Max length is 1000 !
+                                </mat-error>   
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="cols">
+                        <div class="col--1of2">
+                            <mat-form-field class="form-field">
+                                <mat-label>Country</mat-label>
+                                <input formControlName="country" matInput placeholder="Country" required>
+                                
+                                <mat-error *ngIf="formControlInput('country').hasError('required')">
+                                    This field is required !
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col--1of2">
+                            <div class="file-upload">
+                                <input class="file-upload__input" (change)="onImageUpload($event)" id="file" type="file">
+
+                                <label class="file-upload__design" for="file">
+                                  + Upload your image here.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form__actions">
+                    <button (click)="submitMovie()" class="submit-button" mat-raised-button color="primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
