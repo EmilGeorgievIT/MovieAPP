@@ -1,1 +1,45 @@
-<p>preview-movie works!</p>
+<app-intro-banner 
+    [image]="'/assets/images/preview-movie-banner.jpg'"
+    [content]="'Preview movie'">
+</app-intro-banner>
+
+<section *ngIf="movie" class="section-preview-movie">
+    <div class="container">
+        <div class="section__head">
+            <div class="section__bar">
+                <button routerLink='/dashboard' mat-raised-button>
+                    <mat-icon>
+                        arrow_back
+                    </mat-icon>
+
+                    Back to Movie list
+                </button>
+            </div>
+
+            <h1 class="section__title">
+                <strong>
+                    {{ movie.name }}
+                </strong>
+            </h1>
+        </div>
+        
+        <div class="section__body">
+            <app-movie
+                [movie]='movie'
+                [cssClass]="'movie--large'"
+            ></app-movie>
+
+            <div class="section__content">
+                <h2>
+                    <strong>
+                        THE PILOT
+                    </strong>
+                </h2>
+                
+                <p>
+                    {{ movie.thePilot }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

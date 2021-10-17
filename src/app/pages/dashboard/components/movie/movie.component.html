@@ -1,0 +1,74 @@
+<div *ngIf="movie" routerLink="/dashboard/preview-movie/{{movie.id}}" [ngClass]="{'movie--large': cssClass !== '' }" class="movie">
+    <div class="movie__aside">
+        <img class="movie__image" [src]="movie.photo" alt="movie-image">
+    </div>
+
+    <div class="movie__content">
+        <h3>
+            <strong>
+                {{ movie.name }} {{ movie.releaseDate }}
+            </strong>
+        </h3>
+
+        <ul class="list-movie-details">
+            <li>
+                <p>
+                    <strong>
+                        Country:
+                    </strong>
+                    {{ movie.country }}
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <strong>
+                        Category:
+                    </strong>
+                    {{ movie.category }}
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <strong>
+                     Release date:
+                    </strong>
+                    {{ movie.releaseDate | date }}
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <strong>
+                     Director:
+                    </strong>
+                    {{ movie.director }}
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <strong>
+                     Box office:
+                    </strong>
+                    {{ movie.boxoffice | currency }}
+                </p>
+            </li>
+        </ul>
+
+        <div class="movie__rating">
+            <ul class="list-stars">
+                <li *ngFor="let item of [].constructor(+movie.rank)">
+                    <mat-icon>star</mat-icon>
+                </li>
+            </ul>
+            
+            <div class="movie__rate">
+                <span>
+                    {{ movie.rank | number:'1.1-3' }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

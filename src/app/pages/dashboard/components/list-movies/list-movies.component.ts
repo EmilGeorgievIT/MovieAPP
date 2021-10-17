@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { JWTTokenService } from 'src/app/shared/services/jwt-token.service';
@@ -10,7 +10,7 @@ import { MovieService } from '../../services/movie.service';
   templateUrl: './list-movies.component.html',
   styleUrls: ['./list-movies.component.scss']
 })
-export class ListMoviesComponent implements OnInit {
+export class ListMoviesComponent implements OnInit, OnDestroy {
   subsctiption: Subscription;
   listMovies: Movie[] = [];
   isLoading = false;
@@ -52,5 +52,11 @@ export class ListMoviesComponent implements OnInit {
     let base64String = btoa(stringCharacters);
 
     return base64String;
+  }
+
+  ngOnDestroy() {
+    if (this.subsctiption) {
+      this.subsctiption.unsubscribe();
+    }
   }
 }

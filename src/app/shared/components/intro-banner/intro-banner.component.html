@@ -1,4 +1,4 @@
-<div class="intro-banner" [ngStyle]="{'background-image': 'url(' + image + ')'}">
+<div *ngIf="image" class="intro-banner" [ngStyle]="{'background-image': 'url(' + image + ')'}">
     <div class="container">
         <div class="intro-banner__content">
             <h1>

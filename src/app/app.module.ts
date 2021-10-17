@@ -10,10 +10,12 @@ import { RouterModule } from '@angular/router';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { AuthService } from './pages/auth/services/auth.service';
 import { JWTTokenService } from './shared/services/jwt-token.service';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

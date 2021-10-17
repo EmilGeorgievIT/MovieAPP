@@ -9,12 +9,15 @@ import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { MovieService } from './services/movie.service';
 import { PreviewMovieComponent } from './components/preview-movie/preview-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MovieComponent } from './components/movie/movie.component';
 
 @NgModule({
   declarations: [
     DashboardComponent, 
     AddMovieComponent, 
-    ListMoviesComponent, PreviewMovieComponent
+    ListMoviesComponent, 
+    PreviewMovieComponent, 
+    MovieComponent
   ],
   imports: [
     CommonModule,

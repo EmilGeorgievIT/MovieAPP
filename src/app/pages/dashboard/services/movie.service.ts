@@ -31,6 +31,16 @@ export class MovieService {
   }
 
   /**
+   *  Get movie details for specific movie ID
+   * @returns Observable<ApiResponse>
+   */
+  getMovieDetails(movieId: string): Observable<Movie> {
+    return this.http
+    .get<ApiResponse>('/api/movie/getMovieDetails?movieId=' + movieId)
+    .pipe(map((response: ApiResponse) => response.result));
+  }
+
+  /**
    *  A method to add new movie to DB
    * @returns Observable<ApiResponse>
    */
