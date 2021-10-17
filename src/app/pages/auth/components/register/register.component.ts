@@ -40,14 +40,14 @@ export class RegisterComponent {
       this.subsctiption = this.authService.signUp(this.registerForm.value)
       .subscribe((data: ApiResponse) => {
         this.router.navigate([UrlConstants.AUTH]);
-        this.snackBar.open(data.messages.toString(), 'Success', {
+        this.snackBar.open(data.message, 'Success', {
           duration:  snackBarConfig.duration,
           horizontalPosition: snackBarConfig.horizontalPosition,
           verticalPosition: snackBarConfig.verticalPosition
         });
 
       }, error => {
-        const errorMessage = error?.error?.messages ? error.error.messages[0] : error;
+        const errorMessage = error?.error?.message ? error.error.message : error;
         this.snackBar.open(errorMessage, 'Error', {
           duration:  snackBarConfig.duration,
           horizontalPosition: snackBarConfig.horizontalPosition,

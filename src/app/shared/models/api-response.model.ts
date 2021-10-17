@@ -1,5 +1,5 @@
 export class ApiResponse {
     result?: any;
-    messages?: [];
+    message?: string;
     errors?: [];
 }

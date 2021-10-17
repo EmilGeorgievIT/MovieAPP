@@ -28,7 +28,7 @@ module.exports = {
         res.status(201)
           .json(
             { 
-              messages: ['User created!'], 
+              message: 'User created!', 
               result: user 
             }
           );
@@ -52,7 +52,7 @@ module.exports = {
           error.statusCode = 404;
 
           res.status(404).json({
-            messages: ["User not found!"]
+            message: "User not found!"
           })
           throw error;
         } else {
@@ -64,7 +64,7 @@ module.exports = {
             error.statusCode = 404;
 
             res.status(404).json({
-              messages: ["User not found!"]
+              message: "User not found!"
             })
 
             throw error;
@@ -80,7 +80,7 @@ module.exports = {
 
           res.status(200).json(
             {
-              messages: ['logged'],
+              message: 'logged',
               result: {
                 id: user.id,
                 firstName: user.firstName,

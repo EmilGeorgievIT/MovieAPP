@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
+const movieRoutes = require('./routes/movie');
 const cors =  require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
@@ -19,6 +20,7 @@ app.use(helmet());
 app.use(cors())
 app.use(compression());
 app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -36,6 +38,7 @@ sequelize.sync()
 });
   
 app.use('/auth', authRoutes);
+app.use('/movie', movieRoutes);
 
 
 // General error handling
