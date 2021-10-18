@@ -31,9 +31,7 @@ export class LoginComponent implements OnDestroy {
   get passwordInput() { return this.loginForm.get('password'); }
   
 
-  submitLoginForm(): void {
-    console.log(this.loginForm.value);
-    
+  submitLoginForm(): void {    
     if(this.loginForm.valid) {
       this.subsctiption = this.authService.signIn(this.loginForm.value)
       .subscribe((data) => {

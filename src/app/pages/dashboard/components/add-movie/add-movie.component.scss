@@ -1,5 +1,6 @@
 
 @import 'variables';
+@import 'settings';
 
 .section-add-movie {
     & {
@@ -60,6 +61,15 @@
         .file-upload__input:focus + .file-upload__design,
         .file-upload__input:hover + .file-upload__design {
             background: $orange;
+        }
+
+        @media(max-width: $responsive-xs) {
+            & {
+                .col--1of2 {
+                    max-width: 100%;
+                    flex: 0 1 100%;
+                }
+            }
         }
     }
 } 

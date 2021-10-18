@@ -32,6 +32,11 @@
         display: inline-block;
         margin-left: 5px;    
     }
+    @media(max-width: $responsive-sm) {
+        & {
+            flex: 0 1 100%;
+        }
+    }
 }
 
 .navbar-utils {
@@ -51,5 +56,11 @@
     
     a:hover, a:active{
         color: $white;
+    }
+
+    @media(max-width: $responsive-sm) {
+        & {
+            display: none;
+        }
     }
 }

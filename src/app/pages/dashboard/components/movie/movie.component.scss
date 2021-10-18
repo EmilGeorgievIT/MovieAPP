@@ -1,4 +1,6 @@
 @import 'variables';
+@import 'settings';
+
 
 .movie {
     & {
@@ -56,6 +58,39 @@
         .movie__aside {
             .movie__image {
                 max-width: 400px;
+            }
+        }
+    }
+
+    @media(max-width: $responsive-xs) {
+        & {
+            display: block;
+            margin-bottom: 40px;
+            
+            .movie__aside {
+                display: flex;
+                justify-content: center;
+
+                .movie__image {
+                    max-width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+            .movie__content{ 
+                padding-left: 0;
+
+                h3 {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        &--large {
+            .movie__aside {
+                .movie__image {
+                    max-width: 100%;
+                    margin-bottom: 10px;
+                }
             }
         }
     }

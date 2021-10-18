@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { DashboardGuard } from 'src/app/shared/guards/dashboard-guard';
 import { UrlConstants } from 'src/app/shared/utils/url-constants';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { ListMoviesComponent } from './components/list-movies/list-movies.component';
@@ -8,6 +9,7 @@ import { DashboardComponent } from './dashboard.component';
 export const dashboardRoutes: Routes = [{
   path: '',
   component: DashboardComponent,
+  canActivate: [DashboardGuard],
   children: [
     {
         path: '',

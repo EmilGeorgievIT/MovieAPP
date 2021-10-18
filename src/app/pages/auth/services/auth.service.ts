@@ -74,10 +74,9 @@ export class AuthService {
      * Clears consumer credentials after successfully logout action
      */
     logout() {
-        const authUrl = window.location.origin;
         this.sessionStorage.signOut();
         this.userSubject.next(null);
-        window.location.assign(authUrl + '/' + UrlConstants.AUTH);
+        this.router.navigate([UrlConstants.HOME]);
     }
 
     /**

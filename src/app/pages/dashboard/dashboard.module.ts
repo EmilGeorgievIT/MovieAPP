@@ -10,6 +10,7 @@ import { MovieService } from './services/movie.service';
 import { PreviewMovieComponent } from './components/preview-movie/preview-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieComponent } from './components/movie/movie.component';
+import { DashboardGuard } from 'src/app/shared/guards/dashboard-guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MovieComponent } from './components/movie/movie.component';
     RouterModule.forChild(dashboardRoutes),
   ],
   providers: [
-    MovieService
+    MovieService,
+    DashboardGuard
   ]
 })
 export class DashboardModule { }

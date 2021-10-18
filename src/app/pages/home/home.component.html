@@ -11,11 +11,15 @@
                 <div *ngIf="images?.length" class="section__slider">
                     <carousel
                         [width]='600'
+                        [cellsToShow]='2'
                         [height]='320'
                         [images]="images">
-                        <div *ngFor="let imagePath of images" class="carousel-cell">
-                            <img [src]="imagePath">
-                        </div>
+
+                        <ng-container *ngFor="let imagePath of images">
+                            <div class="carousel-cell">
+                                <img [src]="imagePath">
+                            </div>
+                        </ng-container>
                     </carousel>
                 </div>
 
