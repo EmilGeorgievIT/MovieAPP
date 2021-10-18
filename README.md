@@ -31,9 +31,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Running server
 
-Go to server folder and Run `npm start`
+Go to server folder and Run `npm start` for production or `npm run start-development` for development env
 
-Add .env file with your configuration
+Add .env file with your configuration for production and 
+Add .env.development file with your configuration for development env 
 
 
 PORT=50
