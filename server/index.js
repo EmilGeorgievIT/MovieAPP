@@ -76,10 +76,10 @@ app.use('/api', proxyBlob(
 ));
 
 
-app.use(express.static('../dist/Rocker/'));
+app.use(express.static('../dist/MovieAPP/'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/Rocker/index.html'));
+  res.sendFile(path.join(__dirname, '../dist/MovieAPP/index.html'));
 });
 
 
