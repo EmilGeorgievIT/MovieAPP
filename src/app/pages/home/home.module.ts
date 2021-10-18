@@ -6,6 +6,7 @@ import { homeRoutes } from './home-routers';
 import { RouterModule } from '@angular/router';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { MovieService } from '../dashboard/services/movie.service';
+import { CinemaModule } from 'projects/cinema/src/public-api';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { MovieService } from '../dashboard/services/movie.service';
   imports: [
     CommonModule,
     IvyCarouselModule,
+    CinemaModule,
     RouterModule.forChild(homeRoutes),
     SharedModule
   ],

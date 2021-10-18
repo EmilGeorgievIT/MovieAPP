@@ -127,6 +127,46 @@
           }
         }
       }
+    },
+    "cinema": {
+      "projectType": "library",
+      "root": "projects/cinema",
+      "sourceRoot": "projects/cinema/src",
+      "prefix": "cn",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/cinema/tsconfig.lib.json",
+            "project": "projects/cinema/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cinema/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cinema/src/test.ts",
+            "tsConfig": "projects/cinema/tsconfig.spec.json",
+            "karmaConfig": "projects/cinema/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cinema/tsconfig.lib.json",
+              "projects/cinema/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "MovieAPP"

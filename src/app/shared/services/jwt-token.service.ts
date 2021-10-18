@@ -25,7 +25,7 @@ export class JWTTokenService {
       try  {
         jwt_decode(token);
       } catch (error) {
-        this.router.navigate(['/auth']);
+        this.router.navigate([UrlConstants.AUTH]);
         return true;
       }
       this.decodedToken = jwt_decode(token);
