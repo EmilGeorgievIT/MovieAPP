@@ -11,11 +11,13 @@ import { PreviewMovieComponent } from './components/preview-movie/preview-movie.
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieComponent } from './components/movie/movie.component';
 import { DashboardGuard } from 'src/app/shared/guards/dashboard-guard';
+import { RangePipe } from 'src/app/shared/pipes/range-pipe';
 
 @NgModule({
   declarations: [
     DashboardComponent, 
     AddMovieComponent, 
+    RangePipe,
     ListMoviesComponent, 
     PreviewMovieComponent, 
     MovieComponent

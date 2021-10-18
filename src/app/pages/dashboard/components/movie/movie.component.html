@@ -59,7 +59,7 @@
 
         <div class="movie__rating">
             <ul class="list-stars">
-                <li *ngFor="let item of [].constructor(+movie.rank)">
+                <li *ngFor="let item of movie.rank | range">
                     <mat-icon>star</mat-icon>
                 </li>
             </ul>
