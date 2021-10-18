@@ -37,7 +37,7 @@ export class LoginComponent implements OnDestroy {
       .subscribe((data) => {
         this.router.navigate([UrlConstants.DASHBOARD]);
       }, error => {
-        const errorMessage = error?.error?.messages ? error.error.messages[0] : error;
+        const errorMessage = error?.error?.message ? error.error.message : error;
         this.snackBar.open(errorMessage, 'Error', {
           duration:  snackBarConfig.duration,
           horizontalPosition: snackBarConfig.horizontalPosition,

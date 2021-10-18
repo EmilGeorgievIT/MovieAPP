@@ -18,18 +18,27 @@
         </div>
         
         <div class="section__body">
-            <ng-container *ngIf="listMovies.length && !isLoading; else noMovies">
+            <ng-container *ngIf="listMovies.length; else noMovies">
                 <app-movie *ngFor="let movie of listMovies" [movie]='movie'></app-movie>
             </ng-container>
             
             <ng-template #noMovies>
-                <h2>
-                    Your current movie library is empty, please go to this URL to add a movie ! 
-                </h2>
-
-                <button routerLink="/dashboard/add-movie" mat-raised-button color="primary">
-                   Add movie 
-                </button>
+                <ng-container *ngIf="isLoading">
+                    <mat-spinner
+                        [diameter]='200'
+                        [value]="90"
+                    ></mat-spinner>  
+                </ng-container>
+                
+                <ng-container *ngIf="!isLoading">
+                    <h2>
+                        Your current movie library is empty, please go to this URL to add a movie ! 
+                    </h2>
+    
+                    <button routerLink="/dashboard/add-movie" mat-raised-button color="primary">
+                       Add movie 
+                    </button>
+                </ng-container>
             </ng-template>
         </div>
     </div>

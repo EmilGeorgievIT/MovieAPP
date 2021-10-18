@@ -12,12 +12,12 @@ export const dashboardRoutes: Routes = [{
   canActivate: [DashboardGuard],
   children: [
     {
-        path: '',
-        component: ListMoviesComponent
+      path: '',
+      component: ListMoviesComponent
     },
     {
-        path: UrlConstants.ADD_MOVIE,
-        component: AddMovieComponent
+      path: UrlConstants.ADD_MOVIE,
+      component: AddMovieComponent
     },
     {
       path: UrlConstants.PREVIEW_MOVIE,

@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { snackBarConfig } from 'src/app/shared/configs/snack-bar.config';
 import { ApiResponse } from 'src/app/shared/models/api-response.model';
 import { JWTTokenService } from 'src/app/shared/services/jwt-token.service';
+import { UrlConstants } from 'src/app/shared/utils/url-constants';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -60,6 +61,7 @@ export class AddMovieComponent implements OnInit {
           verticalPosition: snackBarConfig.verticalPosition
         });
         this.addMovieForm.reset();
+        this.router.navigate([UrlConstants.DASHBOARD]);
       }, error => {
         const errorMessage = error?.error?.message ? error.error.message : error;
         this.snackBar.open(errorMessage, 'Error', {

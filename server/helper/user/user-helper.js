@@ -56,8 +56,8 @@ module.exports = {
         // Message object
         let message = {
           to: `${req.body.email}`,
-          subject: `Message form Projext X Admin`,
-          text: 'Welcome to the platform!',
+          subject: `Message form Movie APP`,
+          text: 'Welcome to the Movie APP!',
           html: `
                   <h1>Dear ${req.body.firstName}</h1>
 
@@ -72,7 +72,7 @@ module.exports = {
 
                   <ul>
                         <li>
-                            Website url: http://localhost:4200/
+                            Website url: https://movie-challenge-app.herokuapp.com/home
                         </li>
                         
                         <li>

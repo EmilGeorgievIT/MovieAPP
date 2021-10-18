@@ -75,8 +75,7 @@ module.exports = {
         Movie.findAll(
                 { 
                     attributes: ['photo'],
-                    limit: limit,
-                    offset: (limit - 1) * sliderPage,
+                    limit: limit
                 },
             )
             .then((movies) => {

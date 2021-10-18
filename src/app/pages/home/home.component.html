@@ -8,7 +8,7 @@
                     TODAY BEST CHOICE
                 </h2>
 
-                <div *ngIf="images?.length" class="section__slider">
+                <div *ngIf="images?.length; else noMovies" class="section__slider">
                     <carousel
                         [width]='600'
                         [cellsToShow]='2'
@@ -22,22 +22,32 @@
                         </ng-container>
                     </carousel>
                 </div>
-
-                <div *ngIf="!images?.length" class="section__slider-no-content">
-                    <h3>
-                        <strong>
-                            Empty movie list 
-                        </strong>
-                    </h3>
-
-                    <p>
-                        Please login to the Movie APP to add movie    
-                    </p>
-
-                    <button routerLink='/auth' mat-raised-button>
-                        Login
-                    </button>
-                </div>
+                <ng-template #noMovies>
+                    <ng-container *ngIf="isLoading">
+                        <mat-spinner
+                            [diameter]='200'
+                            [value]="90"
+                        ></mat-spinner>  
+                    </ng-container>
+                    
+                    <ng-container *ngIf="!isLoading">
+                        <div class="section__slider-no-content">
+                            <h3>
+                                <strong>
+                                    Empty movie list 
+                                </strong>
+                            </h3>
+        
+                            <p>
+                                Please login to the Movie APP to add movie    
+                            </p>
+        
+                            <button routerLink='/auth' mat-raised-button>
+                                Login
+                            </button>
+                        </div>
+                    </ng-container>
+                </ng-template>
             </div>
         </div>
     </div>
