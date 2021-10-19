@@ -133,6 +133,11 @@
     },
     "cinema": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/cinema",
       "sourceRoot": "projects/cinema/src",
       "prefix": "cn",
@@ -172,5 +177,10 @@
       }
     }
   },
-  "defaultProject": "MovieAPP"
+  "defaultProject": "MovieAPP",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  }
 }

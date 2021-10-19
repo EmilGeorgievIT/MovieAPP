@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { UrlConstants } from '../utils/url-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class SessionStorageService {
   private static projectKey = 'MOV';
 
+  constructor(private router: Router) {}
   /**
    * @whatItDoes Method to clear the session storage
    */
@@ -29,6 +32,12 @@ export class SessionStorageService {
    */
   public getSessionStorage(value: string): string {
     const decryptSession = sessionStorage.getItem(SessionStorageService.projectKey + '-' + value);
+    try {
+      atob(unescape(decryptSession))
+    } catch(error) {
+      this.signOut();
+      this.router.navigate([UrlConstants.AUTH]);
+    }
     return decryptSession ? atob(unescape(decryptSession)) : '';
   }
 
